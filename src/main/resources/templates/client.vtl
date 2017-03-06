@@ -1,0 +1,17 @@
+<h1>$client.getDescription()</h1>
+<h2>Completed?:  $client.isCompleted()</h2>
+<h2> Belongs to: $stylist.getName() list.</h2>
+
+<h2>Edit client:</h2>
+
+<form action="/stylists/$client.getstylistId()/clients/$client.getId()" method="post">
+  <label for="description">Description</label>
+  <input id="description" name="description" type="text">
+  <button type="submit" class="btn btn-info">Update client</button>
+</form>
+
+<form action="/stylists/$client.getstylistId()/clients/$client.getId()/delete" method="post">
+  <button type="submit" class="btn btn-danger" id="delete-client">Delete client</button>
+</form>
+
+<a href="/stylists/$stylist.getId()">Return to $stylist.getName()</a>

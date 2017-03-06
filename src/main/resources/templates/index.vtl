@@ -1,0 +1,52 @@
+
+<body>
+<h1 class="h">Beauty Palace</h1>
+<div class="stylist">
+
+<h2 class="h"> Stylist Palace: </h2>
+
+#if($stylists)
+ <div class="h">
+  <p>Click on a Stylist to see its clients:</p>
+  </div>
+  <ul>
+    #foreach ($stylist in $stylists)
+      <li><a href="/stylists/$stylist.getId()">$stylist.getName()</a></li>
+    #end
+  </ul>
+#else
+ <div class="p"> <p>There are no clients yet!</p></div>
+#end
+</div>
+<h2 class="h">New Stylist:</h2>
+
+<form action="/stylists" method="post">
+  <label for="name">stylist name</label>
+  <input id="name" name="name" type="text">
+ <button type="submit" class="btn btn-primary btn-lg">Add stylist</button>
+</form>
+
+<h2 class="h">New client:</h2>
+
+<form action="/clients" method="post">
+  <label for="stylistId">Select a stylist</label>
+  <select id='stylistId' name='stylistId' type='text'>
+    #foreach($stylist in $stylists)
+      <option value="$stylist.getId()">$stylist.getName()</option>
+    #end
+  </select>
+  <div class="form-group">
+    <label for="description">Client Name</label>
+    <input id="description" name="description" type="text" class="form-control">
+  </div>
+
+  <button type="submit" class="btn btn-primary btn-lg">Add a client</button>
+</form>
+<br>
+<br>
+<br>
+</body>
+
+
+
+
